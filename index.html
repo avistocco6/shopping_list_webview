@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="scripts/main.js"></script>
+</head>
+
+<body>
+    <div class="list-container">
+        <div class="header">
+            <h3 class="heading">Shopping List</h3>
+        </div>
+
+        <table class="list">
+            <thead>
+                <template id="list-item-template">
+                    <tr class="list-item">
+                        <td class="item">
+                            <h1 class="name">{Name}</h1>
+                            <h3 class="uom">{UOM}</h3>
+                        </td>
+                        <td class="counter">    
+                            <div class="quantity">{Quantity}</div>
+                        </td>
+                    </tr>
+                </template>
+            </thead>
+            <tbody id="list-rows" class="list-items">
+                <!-- Dinamically loaded -->
+            </tbody>
+        </table>
+    </div>
+
+    <!--script>
+        data = JSON.parse('{ "apple": {"quantity": "1","uom": "kilogram"}, "pizza": {"quantity": "2","uom": null} }')
+        let staticHtml = $("#list-item-template").html();
+
+        $.each( data, function( key, val ) {
+            let row = staticHtml;
+            row = row.replace(/{Name}/ig, key);
+            if(val.uom != null)
+                row = row.replace(/{UOM}/ig, val.uom);
+            else
+                row = row.replace(/{UOM}/ig, "");
+            row = row.replace(/{Quantity}/ig, val.quantity);
+            $('#list-rows').append(row);
+        });
+    </script-->
+</body>
+</html>
